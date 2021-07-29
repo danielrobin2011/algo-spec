@@ -28,7 +28,7 @@ public class GraphUtil {
                 if (!nodeMap.containsKey(source)) {
                     sourceNode = new Node(source);
                     nodeMap.put(source, sourceNode);
-                    graph.nodes.add(sourceNode);
+                    graph.add(sourceNode);
                 } else {
                     sourceNode = nodeMap.get(source);
                 }
@@ -36,7 +36,7 @@ public class GraphUtil {
                 if (!nodeMap.containsKey(sink)) {
                     sinkNode = new Node(sink);
                     nodeMap.put(sink, sinkNode);
-                    graph.nodes.add(sinkNode);
+                    graph.add(sinkNode);
                 } else {
                     sinkNode = nodeMap.get(sink);
                 }
