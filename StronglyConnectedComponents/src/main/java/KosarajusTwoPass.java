@@ -53,11 +53,10 @@ public class KosarajusTwoPass {
 
         // first pass
         Stack<Node> finishingTimeStack = firstPass(graph);
-        System.out.println(finishingTimeStack);
 
         // second pass
         List<Integer> sccSizes = secondPass(reversedGraph, finishingTimeStack);
-
+        Collections.sort(sccSizes, Collections.<Integer>reverseOrder());
         System.out.println(sccSizes);
     }
 

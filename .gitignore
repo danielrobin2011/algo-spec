@@ -7,3 +7,7 @@ StronglyConnectedComponents/.idea
 StronglyConnectedComponents/StronglyConnectedComponents.iml
 
 StronglyConnectedComponents/data pipeline script/venv/
+
+StronglyConnectedComponents/src/main/resources/SCC.txt
+
+StronglyConnectedComponents/.jython_cache/
