@@ -5,6 +5,9 @@ public class Edge {
     private Integer source;
     private Integer sink;
 
+    public Edge() {
+    }
+
     public Edge(Integer source, Integer sink) {
         this.source = source;
         this.sink = sink;
@@ -14,15 +17,15 @@ public class Edge {
         return source;
     }
 
-    public void setSource(Integer source) {
-        this.source = source;
-    }
-
     public Integer getSink() {
         return sink;
     }
 
-    public void setSink(Integer sink) {
-        this.sink = sink;
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "source=" + source +
+                ", sink=" + sink +
+                '}';
     }
 }

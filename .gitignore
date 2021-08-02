@@ -11,3 +11,9 @@ StronglyConnectedComponents/data pipeline script/venv/
 StronglyConnectedComponents/src/main/resources/SCC.txt
 
 StronglyConnectedComponents/.jython_cache/
+
+scheduling-application/target
+
+scheduling-application/.idea
+
+scheduling-application/StronglyConnectedComponents.iml
