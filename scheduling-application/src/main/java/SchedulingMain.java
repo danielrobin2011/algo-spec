@@ -68,6 +68,8 @@ public class SchedulingMain {
         );
         BigDecimal result = schedulingMain.calculateWeightedCompletionTime(jobs);
         System.out.println(result);
+        // for w - l = 69119377652
+        // for w / l = 67311454237
     }
 
 }
