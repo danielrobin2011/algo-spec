@@ -7,10 +7,15 @@ public class Graph {
     private Map<String, Vertex> vertices = new HashMap<>();
     private PriorityQueue<Edge> edges;
     public int clusterSize;
+    public DisjointSet disjointSet;
 
     public Graph(int clusterSize) {
         this.clusterSize = clusterSize;
         this.edges = new PriorityQueue<Edge>(Comparator.comparing(Edge::getWeight));
+        this.disjointSet = new DisjointSet();
+        for (int i = 1; i <= clusterSize ; i++) {
+            disjointSet.create_set(i);
+        }
     }
 
     public void addEdge(Edge edge) {
@@ -29,24 +34,30 @@ public class Graph {
         return edges;
     }
 
-    public void union(Edge edge) {
-
-        Vertex fromParent = find(edge.from);
-        Vertex toParent = find(edge.to);
-        if (fromParent.equals(toParent)) {
-            return;
-        }
-
-        this.clusterSize--;
-        edge.to.parent = edge.from;
-    }
-
-    public Vertex find(Vertex vertex) {
-        if(vertex.parent == null) {
-            return vertex;
-        }
-        return find(vertex.parent);
-    }
+//    public void union(Vertex from, Vertex to) {
+//
+////        Vertex fromParent = find(edge.from);
+////        Vertex toParent = find(edge.to);
+//
+//        if (find(from) == null && find(to) == null) {
+//            to.parent = from;
+//            from.parent = from;
+//        }
+//
+//        if (find(from).equals(find(to))) {
+//            return;
+//        }
+//
+//        this.clusterSize--;
+//        to.parent = find(from);
+//    }
+//
+//    public Vertex find(Vertex vertex) {
+//        if(vertex.parent == null) {
+//            return null;
+//        }
+//        return find(vertex.parent);
+//    }
 
     public Vertex findVertex(int label) {
         if (vertices.containsKey(label)) {
