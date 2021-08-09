@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class ClusteringMain {
 
-    final int CLUSTER_SIZE = 4;
+    final int CLUSTER_SIZE = 2;
 
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -51,7 +51,7 @@ public class ClusteringMain {
 
     public Graph readInputFile() throws FileNotFoundException {
 
-        Scanner scanner = new Scanner(new File("src/main/resources/clustering1.txt"));
+        Scanner scanner = new Scanner(new File("src/main/resources/clustering_testcase.txt"));
         int totalVertices = Integer.parseInt(scanner.nextLine());
         Graph graph = new Graph(totalVertices);
         Map<Integer, Vertex> mapVertices = new HashMap<>();
@@ -71,18 +71,20 @@ public class ClusteringMain {
 
         List<Edge> sortedEdges = graph.getSortedEdges();
         Edge lastIteratedEdge = null;
+        int i = 0;
         for (Edge edge : sortedEdges) {
+            System.out.println(edge);
+            i++;
             if (graph.clusterSize >= CLUSTER_SIZE) {
                 if (graph.find(edge.to).equals(graph.find(edge.from))) {
                     continue;
                 }
-                System.out.println(graph.clusterSize);
                 graph.union(edge);
-                lastIteratedEdge = edge;
             } else {
                 break;
             }
         }
+        lastIteratedEdge = sortedEdges.get(i);
         return lastIteratedEdge.getWeight();
     }
 

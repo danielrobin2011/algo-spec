@@ -30,6 +30,13 @@ public class Graph {
     }
 
     public void union(Edge edge) {
+
+        Vertex fromParent = find(edge.from);
+        Vertex toParent = find(edge.to);
+        if (fromParent.equals(toParent)) {
+            return;
+        }
+
         this.clusterSize--;
         edge.to.parent = edge.from;
     }
