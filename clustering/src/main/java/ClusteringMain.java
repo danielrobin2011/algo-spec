@@ -15,38 +15,10 @@ public class ClusteringMain {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-//        Graph graph = new Graph(6);
-//
-//        Vertex vertex1 = new Vertex(1);
-//        Vertex vertex2 = new Vertex(2);
-//        Vertex vertex3 = new Vertex(3);
-//        Vertex vertex4 = new Vertex(4);
-//        Vertex vertex5 = new Vertex(5);
-//        Vertex vertex6 = new Vertex(6);
-//
-//        Edge edge1 = new Edge(vertex1, vertex2, 5);
-//        Edge edge2 = new Edge(vertex2, vertex3, 2);
-//        Edge edge3 = new Edge(vertex3, vertex4, 1);
-//        Edge edge4 = new Edge(vertex4, vertex5, 3);
-//        Edge edge5 = new Edge(vertex5, vertex6, 4);
-//
-//        graph.addEdge(edge1);
-//        graph.addEdge(edge2);
-//        graph.addEdge(edge3);
-//        graph.addEdge(edge4);
-//        graph.addEdge(edge5);
-
-//        graph.union(edge1);
-//        graph.union(edge2);
-//        graph.union(edge3);
-
-//        System.out.println(graph.find(edge3.to).label);
-//        System.out.println(graph.clusterSize);
-
         ClusteringMain clusteringMain = new ClusteringMain();
         Graph graph = clusteringMain.readInputFile();
         int maxSpacing = clusteringMain.maxSpacing(graph);
-        System.out.println(maxSpacing);
+        System.out.println(maxSpacing); // 106
     }
 
     public Graph readInputFile() throws FileNotFoundException {

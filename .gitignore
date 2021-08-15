@@ -12,8 +12,8 @@ StronglyConnectedComponents/src/main/resources/SCC.txt
 
 StronglyConnectedComponents/.jython_cache/
 
-scheduling-application/target
+*/target
 
-scheduling-application/.idea
+*/.idea
 
-scheduling-application/StronglyConnectedComponents.iml
+*/*.iml
