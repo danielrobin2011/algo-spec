@@ -13,16 +13,16 @@ public class MaxWISMain {
         System.out.println(weightedArray.length);
         Map<Integer, Integer> map = maxWISMain.reconstruction(weightedArray, list);
         System.out.println(map);
-
+        // 10100110
     }
 
     public long[] weightedArray(List<Integer> pathGraphWeights) {
 
-        long[] weightedArray = new long[pathGraphWeights.size()];
+        long[] weightedArray = new long[pathGraphWeights.size()+1];
         weightedArray[0] = 0;
         weightedArray[1] = pathGraphWeights.get(0);
-        for (int i = 2; i < pathGraphWeights.size(); i++) {
-            weightedArray[i] = Math.max(weightedArray[i-1], weightedArray[i-2] + pathGraphWeights.get(i));
+        for (int i = 2; i <= pathGraphWeights.size(); i++) {
+            weightedArray[i] = Math.max(weightedArray[i - 1], weightedArray[i - 2] + pathGraphWeights.get(i - 1));
         }
         return weightedArray;
     }
@@ -32,15 +32,15 @@ public class MaxWISMain {
         Map<Integer,Integer> map = new HashMap<>();
         int i = weightedArray.length - 1;
         System.out.println(i);
-        while (i >= 1) {
+        while (i > 0) {
             long weighted2 = 0;
-            if (i-1 > 0) {
-                weighted2 = weightedArray[i-1];
+            if (i - 2 > 0) {
+                weighted2 = weightedArray[i - 2];
             }
-            if (weightedArray[i] == weighted2) {
+            if (weightedArray[i - 1] >= (weighted2 + pathGraphWeights.get(i - 1))) {
                 i--;
             } else {
-                map.put(i+1, pathGraphWeights.get(i));
+                map.put(i, pathGraphWeights.get(i - 1));
                 i -= 2;
             }
         }
